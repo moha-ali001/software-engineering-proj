@@ -1,4 +1,4 @@
 % include("header.tpl")
 % include("banner.tpl")
-LOGIN
+LOGIN PAGE
 % include("footer.tpl")
