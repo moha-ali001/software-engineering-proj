@@ -32,6 +32,7 @@
         var element = document.body;
         element.classList.toggle("dark");
         }
+     </script>
          button{
             cursor: pointer;
             border: 1px solid #555;
