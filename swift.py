@@ -40,6 +40,14 @@ def login():
 def login():
     return template("register.tpl")
 
+@route('/calories')
+def calories():
+    return template("calories.tpl")
+
+@route('/overview')
+def overview():
+    return template("overview.tpl")
+
 # ---------------------------
 # task REST api
 # ---------------------------
