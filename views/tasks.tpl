@@ -181,7 +181,17 @@ function display_task(x) {
         '  <td style="width:36px"></td>' +  
         '  <td><span id="editor-'+x.id+'">' + 
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" '+ 
-        '          type="text" autofocus placeholder="Add an item..."/>'+
+        '          type="text" autofocus placeholder="# of Sets..."/>'+
+        '      </span>' + 
+        '  </td>' +
+        '  <td><span id="editor-'+x.id+'">' + 
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" '+ 
+        '          type="text" autofocus placeholder="# of Reps..."/>'+
+        '      </span>' + 
+        '  </td>' +
+        '  <td><span id="editor-'+x.id+'">' + 
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" '+ 
+        '          type="text" autofocus placeholder="Exercise..."/>'+
         '      </span>' + 
         '  </td>' +
         '  <td style="width:72px">' +
@@ -193,6 +203,16 @@ function display_task(x) {
   } else {
     t = '<tr id="task-'+x.id+'" class="task">' + 
         '  <td><span id="move_task-'+x.id+'" class="move_task '+x.list+' material-icons">' + arrow + '</span></td>' +
+        '  <td><span id="sets-'+x.id+'" class="sets' + completed + '">' + x.sets + '</span>' + 
+        '      <span id="editor-'+x.id+'" hidden>' + 
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
+        '      </span>' + 
+        '  </td>' +
+        '  <td><span id="reps-'+x.id+'" class="reps' + completed + '">' + x.reps + '</span>' + 
+        '      <span id="editor-'+x.id+'" hidden>' + 
+        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
+        '      </span>' + 
+        '  </td>' +
         '  <td><span id="description-'+x.id+'" class="description' + completed + '">' + x.description + '</span>' + 
         '      <span id="editor-'+x.id+'" hidden>' + 
         '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
