@@ -2,11 +2,13 @@
 % include("banner.tpl")
 
 <style>
-  .save_edit, .undo_edit, .move_task, .description, .edit_task, .delete_task {
+  .save_edit, .undo_edit, .move_task, .sets, .reps, .description, .edit_task, .delete_task {
     cursor: pointer;
   }
   .completed {text-decoration: line-through;}
   .description { padding-left:8px }
+  .sets { padding-left:8px }
+  .reps { padding-left:8px }
 </style>
 
 <div class="w3-row">
@@ -89,10 +91,39 @@ function move_task(event) {
                   } );
 }
 
-function complete_task(event) {
+// called when 'description' is clicked -- completes task
+function complete_task_des(event) {
   if ($("#current_input").val() != "") { return }
   console.log("complete item", event.target.id )
   id = event.target.id.replace("description-","");
+  completed = event.target.className.search("completed") > 0;
+  console.log("updating :",{'id':id, 'completed':completed==false})
+  api_update_task({'id':id, 'completed':completed==false}, 
+                  function(result) { 
+                    console.log(result);
+                    get_current_tasks();
+                  } );
+}
+
+// called when 'sets' is clicked -- completes task
+function complete_task_set(event) {
+  if ($("#current_input").val() != "") { return }
+  console.log("complete item", event.target.id )
+  id = event.target.id.replace("sets-","");
+  completed = event.target.className.search("completed") > 0;
+  console.log("updating :",{'id':id, 'completed':completed==false})
+  api_update_task({'id':id, 'completed':completed==false}, 
+                  function(result) { 
+                    console.log(result);
+                    get_current_tasks();
+                  } );
+}
+
+// called when 'reps' is clicked -- completes task
+function complete_task_rep(event) {
+  if ($("#current_input").val() != "") { return }
+  console.log("complete item", event.target.id )
+  id = event.target.id.replace("reps-","");
   completed = event.target.className.search("completed") > 0;
   console.log("updating :",{'id':id, 'completed':completed==false})
   api_update_task({'id':id, 'completed':completed==false}, 
@@ -243,7 +274,9 @@ function get_current_tasks() {
     }
     // wire the response events 
     $(".move_task").click(move_task);
-    $(".description").click(complete_task)
+    $(".description").click(complete_task_des)
+    $(".sets").click(complete_task_set)
+    $(".reps").click(complete_task_rep)
     $(".edit_task").click(edit_task);
     $(".save_edit").click(save_edit);
     $(".undo_edit").click(undo_edit);
