@@ -20,14 +20,6 @@
     </table>
     <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
   </div>
-  <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
-    <div class="w3-row w3-xxlarge w3-bottombar w3-border-black w3-margin-bottom">
-      <h1><i>Tomorrow</i></h1>
-    </div>
-    <table  id="task-list-tomorrow" class="w3-table">
-    </table>
-    <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
-  </div>
 </div>
 <input id="current_input" hidden value=""/> 
 <script>
@@ -71,6 +63,8 @@ function input_keypress(event) {
   if (event.target.id != "current_input") {
     $("#current_input").val(event.target.id)
   }
+  id = event.target.id.replace("set_input-","");    // added
+  id = event.target.id.replace("rep_input-","");    // added
   id = event.target.id.replace("input-","");
   $("#filler-"+id).prop('hidden', true);
   $("#save_edit-"+id).prop('hidden', false);
@@ -138,13 +132,19 @@ function edit_task(event) {
   console.log("edit item", event.target.id)
   id = event.target.id.replace("edit_task-","");
   // move the text to the input editor
+  $("#set_input-"+id).val($("#sets-"+id).text());   // added
+  $("#rep_input-"+id).val($("#reps-"+id).text());   // added
   $("#input-"+id).val($("#description-"+id).text());
   // hide the text display
   $("#move_task-"+id).prop('hidden', true);
+  $("#sets-"+id).prop('hidden', true);              // added
+  $("#reps-"+id).prop('hidden', true);              // added
   $("#description-"+id).prop('hidden', true);
   $("#edit_task-"+id).prop('hidden', true);
   $("#delete_task-"+id).prop('hidden', true);
   // show the editor
+  $("#set_editor-"+id).prop('hidden', false);   // added
+  $("#rep_editor-"+id).prop('hidden', false);   // added
   $("#editor-"+id).prop('hidden', false);
   $("#save_edit-"+id).prop('hidden', false);
   $("#undo_edit-"+id).prop('hidden', false);
@@ -156,15 +156,17 @@ function save_edit(event) {
   console.log("save item", event.target.id)
   id = event.target.id.replace("save_edit-","");
   console.log("desc to save = ",$("#input-" + id).val())
+  console.log("reps to save = ",$("#rep_input-" + id).val())    // added
+  console.log("sets to save = ",$("#set_input-" + id).val())    // added
   if ((id != "today") & (id != "tomorrow")) {
-    api_update_task({'id':id, description:$("#input-" + id).val()},
+    api_update_task({'id':id, description:$("#input-" + id).val(), sets:$("#set_input-" + id).val(), reps:$("#rep_input-" + id).val()},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
                       $("#current_input").val("")
                     } );
   } else {
-    api_create_task({description:$("#input-" + id).val(), list:id},
+    api_create_task({description:$("#input-" + id).val(), sets:$("#set_input-" + id).val(), reps:$("#rep_input-" + id).val(), list:id},
                     function(result) { 
                       console.log(result);
                       get_current_tasks();
@@ -177,13 +179,19 @@ function undo_edit(event) {
   id = event.target.id.replace("undo_edit-","")
   console.log("undo",[id])
   $("#input-" + id).val("");
+  $("#set_input-" + id).val("");    // added
+  $("#rep_input-" + id).val("");    // added
   if ((id != "today") & (id != "tomorrow")) {
     // hide the editor
+    $("#set_editor-"+id).prop('hidden', true);    // added
+    $("#rep_editor-"+id).prop('hidden', true);    // added
     $("#editor-"+id).prop('hidden', true);
     $("#save_edit-"+id).prop('hidden', true);
     $("#undo_edit-"+id).prop('hidden', true);
     // show the text display
     $("#move_task-"+id).prop('hidden', false);
+    $("#sets-"+id).prop('hidden', false);
+    $("#reps-"+id).prop('hidden', false);
     $("#description-"+id).prop('hidden', false);
     $("#filler-"+id).prop('hidden', false);
     $("#edit_task-"+id).prop('hidden', false);
@@ -210,13 +218,13 @@ function display_task(x) {
   if ((x.id == "today") | (x.id == "tomorrow")) {
     t = '<tr id="task-'+x.id+'" class="task">' +
         '  <td style="width:36px"></td>' +  
-        '  <td><span id="editor-'+x.id+'">' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" '+ 
+        '  <td><span id="set_editor-'+x.id+'">' + 
+        '        <input id="set_input-'+x.id+'" style="height:22px" class="w3-input" '+ 
         '          type="text" autofocus placeholder="# of Sets..."/>'+
         '      </span>' + 
         '  </td>' +
-        '  <td><span id="editor-'+x.id+'">' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" '+ 
+        '  <td><span id="rep_editor-'+x.id+'">' + 
+        '        <input id="rep_input-'+x.id+'" style="height:22px" class="w3-input" '+ 
         '          type="text" autofocus placeholder="# of Reps..."/>'+
         '      </span>' + 
         '  </td>' +
@@ -235,13 +243,13 @@ function display_task(x) {
     t = '<tr id="task-'+x.id+'" class="task">' + 
         '  <td><span id="move_task-'+x.id+'" class="move_task '+x.list+' material-icons">' + arrow + '</span></td>' +
         '  <td><span id="sets-'+x.id+'" class="sets' + completed + '">' + x.sets + '</span>' + 
-        '      <span id="editor-'+x.id+'" hidden>' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
+        '      <span id="set_editor-'+x.id+'" hidden>' + 
+        '        <input id="set_input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
         '      </span>' + 
         '  </td>' +
         '  <td><span id="reps-'+x.id+'" class="reps' + completed + '">' + x.reps + '</span>' + 
-        '      <span id="editor-'+x.id+'" hidden>' + 
-        '        <input id="input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
+        '      <span id="rep_editor-'+x.id+'" hidden>' + 
+        '        <input id="rep_input-'+x.id+'" style="height:22px" class="w3-input" type="text" autofocus/>' +
         '      </span>' + 
         '  </td>' +
         '  <td><span id="description-'+x.id+'" class="description' + completed + '">' + x.description + '</span>' + 
