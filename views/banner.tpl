@@ -1,6 +1,6 @@
 <div class="w3-container w3-topbar w3-leftbar w3-rightbar w3-border-white w3-black">
 <span class="w3-xxxlarge w3-margin"><b>Taskbook</b></span>
-<div id="clockbox"  style="font:30pt Brush Script MT; color:#FF0000; text-align:right;"></div>
+<div id="clockbox"  style="font:30pt Arial; color:#ffffff ; text-align:right;"></div>
 
 <script type="text/javascript">
 var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
