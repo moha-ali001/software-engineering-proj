@@ -31,7 +31,6 @@
 
 <div class="w3-container  w3-black">
     <button id="openNav" class="w3-button w3-xxlarge w3-black w3-round-large " onclick="w3_open()">&#8962;</button>
-    <br>
     <img src="https://user-images.githubusercontent.com/76025363/110568108-84b01180-8120-11eb-95ad-265a8e3bc052.png" width="275" height="147">
     <!-- <span class="w3-xxxlarge " style="font: Arial; color:#ffffff ; text-align:left;"><b>Taskbook</b><span> -->
      <div id="clockbox"  style="font:20pt Arial; color:#ffffff ; text-align:right;">
