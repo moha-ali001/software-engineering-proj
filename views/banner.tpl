@@ -25,7 +25,7 @@
     <a href="/calories"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Calories</span></a>
     <a href="/login"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">SignUp</span></a>
     <a href="/register"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Login</span></a>
-
+    <button id="darkbutton"  class="w3-large w3-right w3-button w3-margin w3-round-large w3-blue ">Dark Mode</button>
 </div>
 <div id="main">
 
@@ -33,7 +33,6 @@
     <button id="openNav" class="w3-button w3-xxlarge w3-black w3-round-large " onclick="w3_open()">&#8962;</button>
     <br>
     <span class="w3-xxxlarge " style="font: Arial; color:#ffffff ; text-align:left;"><b>Taskbook</b><span>
-    <button id="darkbutton"  class="w3-large w3-right w3-button w3-margin w3-round-large w3-blue ">Dark Mode</button>
      <div id="clockbox"  style="font:20pt Arial; color:#ffffff ; text-align:right;">
 
 <script type="text/javascript">
