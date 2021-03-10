@@ -32,6 +32,7 @@
 <div class="w3-container  w3-black">
     <button id="openNav" class="w3-button w3-xxlarge w3-black w3-round-large " onclick="w3_open()">&#8962;</button>
     <br>
+    <img src="swift_logo_v1.png" width="236" height="420">
     <span class="w3-xxxlarge " style="font: Arial; color:#ffffff ; text-align:left;"><b>Taskbook</b><span>
      <div id="clockbox"  style="font:20pt Arial; color:#ffffff ; text-align:right;">
 
