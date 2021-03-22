@@ -48,6 +48,10 @@ def calories():
 def overview():
     return template("overview.tpl")
 
+@route('/stopwatch')
+def stopwatch():
+    return template("stopwatch.tpl")
+
 # ---------------------------
 # task REST api
 # ---------------------------
