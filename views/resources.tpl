@@ -13,6 +13,7 @@
 .active, .collapsible:hover {
   background-color: black;
   cursor: pointer;
+  color: white;
 }
 
 .content {
