@@ -27,7 +27,6 @@ div.resources {
 }
 
 a:link{
-  color: white;
   cursor: pointer;
   text-decoration: none;
 }
