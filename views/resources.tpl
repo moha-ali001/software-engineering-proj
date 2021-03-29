@@ -48,7 +48,10 @@ a:hover{
 
 <button type="button" class="collapsible">Shoulder</button>
 <div class="content">
-  <p><a href="google.com"> This is a link </a></p>
+  <p><a href="https://www.youtube.com/watch?v=viYVoULXFgo"> This is a link </a> 
+     <a href="https://www.youtube.com/watch?v=44WTG33KtpU"> This is a second link on the same line! </a>
+ </p>
+  <p> this is a new line in the same list, add the 'a href=URL' part of the lines above to make this a link too! </p>
 </div>
 <button type="button" class="collapsible">Chest</button>
 <div class="content">
