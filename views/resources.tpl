@@ -3,14 +3,10 @@
 
 <style>
 .collapsible {
-  //background-color: white;
-  color: black;
   cursor: pointer;
   padding: 20px;
   width: 100%;
-  //border: none;
   text-align: left;
-  //outline: none;
   font-size: 15px;
 }
 
@@ -21,17 +17,21 @@
 }
 
 .content {
-  padding: 0 18px;
+  padding: 18px;
   padding-bottom: 30px;
   display: none;
   overflow: hidden;
-  //background-color: #B22222;
-  background-color: white;
   color = white;
 }
 
 div.resources {
     text-indent: 50px;
+}
+
+a:link{
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 a:hover{
