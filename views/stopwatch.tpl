@@ -1,3 +1,5 @@
+% include("header.tpl")
+% include("banner.tpl")
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,3 +103,4 @@ function reset(){
     </div>
 </body>
 </html>
+% include("footer.tpl")
