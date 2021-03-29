@@ -49,7 +49,7 @@ a:hover{
   <p><a href="https://youtu.be/rL6b6LDJK5w"> Lateral Raise </a> </p>
   <p><a href="https://youtu.be/Vm1oShjeCAc"> Front Raise </a> </p>
   <p><a href="https://youtu.be/UBoMrEff-vM"> Bent Over Lateral Raise </a> </p>
-  <p><a href="https://youtu.be/_Yb_exS0iaI"> Military Press </a> </p>
+  <p><a href="https://youtu.be/dgwQUL4gpyo"> Military Press </a> </p>
   <p><a href="https://youtu.be/_Yb_exS0iaI"> Dumbbell Shoulder Press </a> </p>
   <p><a href="https://youtu.be/JmMIYI-GV0I"> Shoulder Shrug </a> </p>
 </div>
