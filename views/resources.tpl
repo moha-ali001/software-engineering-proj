@@ -12,7 +12,6 @@
 
 .active, .collapsible:hover {
   background-color: black;
-  color: white;
   cursor: pointer;
 }
 
@@ -21,7 +20,6 @@
   padding-bottom: 30px;
   display: none;
   overflow: hidden;
-  color = white;
 }
 
 div.resources {
