@@ -103,7 +103,7 @@ a:hover{
 <div class="content">
   <p><a href="https://youtu.be/733RiX6fjs0"> Barbell Squat </a> </p>
   <p><a href="https://youtu.be/RaV4JPphKls"> Barbell Front Squat </a> </p>
-  <p><a href="https://youtu.be/4sb_SvYz740"> Barbell Lunge </a> </p>
+  <p><a href="https://youtu.be/4sb_SvYz740"> Dumbbell Lunge </a> </p>
   <p><a href="https://youtu.be/3gpXflqRiEc"> Goblet Squat </a> </p>
   <p><a href="https://youtu.be/7Aqeb8UHl4k"> Bulgarian Split Squat </a> </p>
   <p><a href="https://youtu.be/lTTi8pVRteo"> Calf Raise </a> </p>
