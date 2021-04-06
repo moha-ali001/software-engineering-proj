@@ -40,9 +40,9 @@ def login():
 def login():
     return template("register.tpl")
 
-@route('/calories')
-def calories():
-    return template("calories.tpl")
+@route('/meals')
+def meals():
+    return template("meals.tpl")
 
 @route('/overview')
 def overview():
@@ -256,7 +256,6 @@ def delete_meal():
     # return 200 Success
     response.headers['Content-Type'] = 'application/json'
     return json.dumps({'success': True})
-
 
 
 
