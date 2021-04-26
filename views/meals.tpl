@@ -12,8 +12,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   position: absolute;
-  right: 8px;
-  width: 330px;
+  right: 100px;
+  width: 400px;
 }
  
 .output-screen {
@@ -88,7 +88,7 @@ button:hover {
 </style>
 
 <div class="calculator">
-<h1 style="text-align:center; color:#91979c"><i>Calculator</i></h1>
+<h1 style="text-align:center;">Calories calculator</h1>
         <input type="text" class="output-screen" value="" disabled />
         
         <div class="display-keys">
@@ -122,16 +122,14 @@ button:hover {
         </div>
       </div>
 
-<div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom"></div>
-
 <div class="w3-row">
-  <div class="w3-panel w3-card-4 w3-round-xlarge" style="background-color:#1b1b2a; color:#b1b7ba; margin: auto; width:800px">
-    <div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom">
+  <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-black w3-margin-bottom">
       <h1><i>Meals</i></h1>
     </div>
     <table id="meal-list-today" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-theme-dark-blue w3-margin-bottom w3-margin-top"></div>
+    <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
   </div>
 </div>
 <input id="current_food_input" hidden value=""/> 
@@ -420,7 +418,7 @@ function display_meal(x) {
   if ((x.id == "today") | (x.id == "tomorrow")) {
     t = '<tr id="meal-'+x.id+'" class="meal">' +
         '  <td style="width:36px"></td>' +  
-        '  <td style="width:162px"><span id="amount_editor-'+x.id+'">' + 
+        '  <td><span id="amount_editor-'+x.id+'">' + 
         '        <input id="amount_input-'+x.id+'" style="height:22px" class="w3-input" '+ 
         '          type="text" autofocus placeholder="Amount..."/>'+
         '      </span>' + 
@@ -430,15 +428,15 @@ function display_meal(x) {
         '          type="text" autofocus placeholder="Food..."/>'+
         '      </span>' + 
         '  </td>' +
-        '  <td style="width:162px"><span id="calories_editor-'+x.id+'">' + 
+        '  <td><span id="calories_editor-'+x.id+'">' + 
         '        <input id="calories_input-'+x.id+'" style="height:22px" class="w3-input" '+ 
         '          type="number" autofocus placeholder="# of Calories..."/>'+
         '      </span>' + 
         '  </td>' +
         '  <td style="width:72px">' +
         '    <span id="filler-'+x.id+'" class="material-icons">more_horiz</span>' + 
-        '    <span id="save_food_edit-'+x.id+'" hidden class="save_food_edit material-icons" style="color:#00d764;">done</span>' + 
-        '    <span id="undo_food_edit-'+x.id+'" hidden class="undo_food_edit material-icons" style="color:#fc1f5d;">cancel</span>' +
+        '    <span id="save_food_edit-'+x.id+'" hidden class="save_food_edit material-icons">done</span>' + 
+        '    <span id="undo_food_edit-'+x.id+'" hidden class="undo_food_edit material-icons">cancel</span>' +
         '  </td>' +
         '</tr>';
   } else {
@@ -460,10 +458,10 @@ function display_meal(x) {
         '      </span>' + 
         '  </td>' +
         '  <td>' +
-        '    <span id="edit_meal-'+x.id+'" class="edit_meal '+x.list+' material-icons" style="color:#0ea3ff;">edit</span>' +
-        '    <span id="delete_meal-'+x.id+'" class="delete_meal material-icons" style="color:#fc1f5d;">delete</span>' +
-        '    <span id="save_food_edit-'+x.id+'" hidden class="save_food_edit material-icons" style="color:#00d764;">done</span>' + 
-        '    <span id="undo_food_edit-'+x.id+'" hidden class="undo_food_edit material-icons" style="color:#fc1f5d;">cancel</span>' +
+        '    <span id="edit_meal-'+x.id+'" class="edit_meal '+x.list+' material-icons">edit</span>' +
+        '    <span id="delete_meal-'+x.id+'" class="delete_meal material-icons">delete</span>' +
+        '    <span id="save_food_edit-'+x.id+'" hidden class="save_food_edit material-icons">done</span>' + 
+        '    <span id="undo_food_edit-'+x.id+'" hidden class="undo_food_edit material-icons">cancel</span>' +
         '  </td>' +
         '</tr>';
   }
@@ -498,4 +496,3 @@ $(document).ready(function() {
   get_current_meals()
 });
 </script>
-% include("footer.tpl")
