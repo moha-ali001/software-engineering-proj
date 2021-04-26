@@ -36,10 +36,6 @@ def tasks():
 def login():
     return template("login.tpl")
 
-@route('/calories')
-def calories():
-    return template("calories.tpl")
-
 @route('/register')
 def login():
     return template("register.tpl")
