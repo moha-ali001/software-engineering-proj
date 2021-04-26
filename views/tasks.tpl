@@ -11,26 +11,25 @@
   .reps { padding-left:8px }
 </style>
 
+<div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom"></div>
+
 <div class="w3-row">
-  <div class="w3-col s6 w3-container w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-white">
-    <div class="w3-row w3-xxlarge w3-bottombar w3-border-black w3-margin-bottom">
+  <div class="w3-panel w3-card-4 w3-round-xlarge" style="background-color:#1b1b2a; color:#b1b7ba; margin: auto; width:800px">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom">
       <h1><i>Workout</i></h1>
     </div>
     <table id="task-list-today" class="w3-table">
     </table>
-    <div class="w3-row w3-bottombar w3-border-black w3-margin-bottom w3-margin-top"></div>
+    <div class="w3-row w3-bottombar w3-border-theme-dark-blue w3-margin-bottom w3-margin-top"></div>
   </div>
 </div>
 <input id="current_input" hidden value=""/> 
 <script>
-
 /* API CALLS */
-
 function api_get_tasks(success_function) {
   $.ajax({url:"api/tasks", type:"GET", 
           success:success_function});
 }
-
 function api_create_task(task, success_function) {
   console.log("creating task with:", task)
   $.ajax({url:"api/tasks", type:"POST", 
@@ -38,7 +37,6 @@ function api_create_task(task, success_function) {
           contentType:"application/json; charset=utf-8",
           success:success_function});
 }
-
 function api_update_task(task, success_function) {
   console.log("updating task with:", task)
   task.id = parseInt(task.id)
@@ -47,7 +45,6 @@ function api_update_task(task, success_function) {
           contentType:"application/json; charset=utf-8",
           success:success_function});
 }
-
 function api_delete_task(task, success_function) {
   console.log("deleting task with:", task)
   task.id = parseInt(task.id)
@@ -56,9 +53,7 @@ function api_delete_task(task, success_function) {
           contentType:"application/json; charset=utf-8",
           success:success_function});
 }
-
 /* KEYPRESS MONITOR */
-
 function input_keypress(event) {
   if (event.target.id != "current_input") {
     $("#current_input").val(event.target.id)
@@ -70,9 +65,7 @@ function input_keypress(event) {
   $("#save_edit-"+id).prop('hidden', false);
   $("#undo_edit-"+id).prop('hidden', false);
 }
-
 /* EVENT HANDLERS */
-
 function move_task(event) {
   if ($("#current_input").val() != "") { return }
   console.log("move item", event.target.id )
@@ -84,7 +77,6 @@ function move_task(event) {
                     get_current_tasks();
                   } );
 }
-
 // called when 'description' is clicked -- completes task
 function complete_task_des(event) {
   if ($("#current_input").val() != "") { return }
@@ -98,7 +90,6 @@ function complete_task_des(event) {
                     get_current_tasks();
                   } );
 }
-
 // called when 'sets' is clicked -- completes task
 function complete_task_set(event) {
   if ($("#current_input").val() != "") { return }
@@ -112,7 +103,6 @@ function complete_task_set(event) {
                     get_current_tasks();
                   } );
 }
-
 // called when 'reps' is clicked -- completes task
 function complete_task_rep(event) {
   if ($("#current_input").val() != "") { return }
@@ -126,7 +116,6 @@ function complete_task_rep(event) {
                     get_current_tasks();
                   } );
 }
-
 function edit_task(event) {
   if ($("#current_input").val() != "") { return }
   console.log("edit item", event.target.id)
@@ -151,7 +140,6 @@ function edit_task(event) {
   // set the editing flag
   $("#current_input").val(event.target.id)
 }
-
 function save_edit(event) {
   console.log("save item", event.target.id)
   id = event.target.id.replace("save_edit-","");
@@ -174,7 +162,6 @@ function save_edit(event) {
                     } );
   }
 }
-
 function undo_edit(event) {
   id = event.target.id.replace("undo_edit-","")
   console.log("undo",[id])
@@ -200,7 +187,6 @@ function undo_edit(event) {
   // set the editing flag
   $("#current_input").val("")
 }
-
 function delete_task(event) {
   if ($("#current_input").val() != "") { return }
   console.log("delete item", event.target.id )
@@ -211,21 +197,20 @@ function delete_task(event) {
                     get_current_tasks();
                   } );
 }
-
 function display_task(x) {
   arrow = (x.list == "today") ? "arrow_forward" : "arrow_back";
   completed = x.completed ? " completed" : "";
   if ((x.id == "today") | (x.id == "tomorrow")) {
     t = '<tr id="task-'+x.id+'" class="task">' +
         '  <td style="width:36px"></td>' +  
-        '  <td><span id="set_editor-'+x.id+'">' + 
+        '  <td style="width:96px"><span id="set_editor-'+x.id+'">' + 
         '        <input id="set_input-'+x.id+'" style="height:22px" class="w3-input" '+ 
-        '          type="text" autofocus placeholder="# of Sets..."/>'+
+        '          type="text" autofocus placeholder="# of Sets"/>'+
         '      </span>' + 
         '  </td>' +
-        '  <td><span id="rep_editor-'+x.id+'">' + 
+        '  <td style="width:96px"><span id="rep_editor-'+x.id+'">' + 
         '        <input id="rep_input-'+x.id+'" style="height:22px" class="w3-input" '+ 
-        '          type="text" autofocus placeholder="# of Reps..."/>'+
+        '          type="text" autofocus placeholder="# of Reps"/>'+
         '      </span>' + 
         '  </td>' +
         '  <td><span id="editor-'+x.id+'">' + 
@@ -235,8 +220,8 @@ function display_task(x) {
         '  </td>' +
         '  <td style="width:72px">' +
         '    <span id="filler-'+x.id+'" class="material-icons">more_horiz</span>' + 
-        '    <span id="save_edit-'+x.id+'" hidden class="save_edit material-icons">done</span>' + 
-        '    <span id="undo_edit-'+x.id+'" hidden class="undo_edit material-icons">cancel</span>' +
+        '    <span id="save_edit-'+x.id+'" hidden class="save_edit material-icons" style="color:#00d764;">done</span>' + 
+        '    <span id="undo_edit-'+x.id+'" hidden class="undo_edit material-icons" style="color:#fc1f5d;">cancel</span>' +
         '  </td>' +
         '</tr>';
   } else {
@@ -258,17 +243,16 @@ function display_task(x) {
         '      </span>' + 
         '  </td>' +
         '  <td>' +
-        '    <span id="edit_task-'+x.id+'" class="edit_task '+x.list+' material-icons">edit</span>' +
-        '    <span id="delete_task-'+x.id+'" class="delete_task material-icons">delete</span>' +
-        '    <span id="save_edit-'+x.id+'" hidden class="save_edit material-icons">done</span>' + 
-        '    <span id="undo_edit-'+x.id+'" hidden class="undo_edit material-icons">cancel</span>' +
+        '    <span id="edit_task-'+x.id+'" class="edit_task '+x.list+' material-icons" style="color:#0ea3ff;">edit</span>' +
+        '    <span id="delete_task-'+x.id+'" class="delete_task material-icons" style="color:#fc1f5d;">delete</span>' +
+        '    <span id="save_edit-'+x.id+'" hidden class="save_edit material-icons" style="color:#00d764;">done</span>' + 
+        '    <span id="undo_edit-'+x.id+'" hidden class="undo_edit material-icons" style="color:#fc1f5d;">cancel</span>' +
         '  </td>' +
         '</tr>';
   }
   $("#task-list-" + x.list).append(t);
   $("#current_input").val("")
 }
-
 function get_current_tasks() {
   // remove the old tasks
   $(".task").remove();
@@ -293,10 +277,8 @@ function get_current_tasks() {
     $("input").keypress(input_keypress);
   });
 }
-
 $(document).ready(function() {
   get_current_tasks()
 });
-
 </script>
 % include("footer.tpl")
