@@ -11,7 +11,7 @@
 }
 
 .active, .collapsible:hover {
-  background-color: black;
+  background-color: #1b1b2a;
   cursor: pointer;
   color: white;
 }
@@ -33,17 +33,19 @@ a:link{
 }
 
 a:hover{
-    color: blue;
+    color: #0ea3ff;
     cursor: pointer;
 }
-
 </style>
 
 
-<div class="resources">
-<h2>Resource Catagories:</h2>
-</div">
+<div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom"></div>
 
+<div class="w3-row">
+  <div class="w3-panel w3-card-4 w3-round-xlarge" style="background-color:#1b1b2a; color:#b1b7ba; margin: auto; width:800px">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom">
+      <h1><i>Exercise Resources</i></h1>
+    </div>
 <button type="button" class="collapsible">Shoulder</button>
 <div class="content">
   <p><a href="https://youtu.be/rL6b6LDJK5w"> Lateral Raise </a> </p>
@@ -109,10 +111,16 @@ a:hover{
   <p><a href="https://youtu.be/lTTi8pVRteo"> Calf Raise </a> </p>
   <p><a href="https://youtu.be/OgDxMvKDiZY"> Hip Thrust </a> </p>
 </div>
+<div class="w3-row w3-bottombar w3-border-theme-dark-blue w3-margin-bottom w3-margin-top"></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
-
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
@@ -125,7 +133,4 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 </script>
-
-
-
 % include("footer.tpl")

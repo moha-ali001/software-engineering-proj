@@ -1,23 +1,44 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
-  <style>
-    body {background-color: white}
-    body.dark {background-color: #222; color: #e6e6e6}
-    button {class="w3-large w3-button w3-margin w3-round-large w3-blue}
-    body.dark button {background-color: #222; color: white}
+  
+<style>
 
-     button{
+body {
+  background-color: #d3d6de;
+  font-family: 'Roboto';
+}
+
+button {
+  class="w3-large w3-button w3-margin w3-round-large w3-blue" 
+}
+
+body.dark {
+  background-color: #14141F;
+  color: #e6e6e6
+  font-family: 'Roboto';
+}
+
+body.dark button {
+  background-color: #14141F;
+  color: white;
+}
+
+button {
   display: inline-block;
   margin: 0;
 }
 
+.div-banner { background-color: #1b1b2a }
 
-  </style>
+.w3-border-theme-dark-blue {border-color:#14141f !important}
+
+</style>
 </head>
 <body>
-<div  class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-top " style="display:none" id="mySidebar">
+<div  class="w3-sidebar w3-bar-block w3-card-4 w3-animate-top " style="display:none; background-color:#1b1b2a;" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large"
   onclick="w3_close()">Close &times;</button>
     <a href="/overview"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Overview</span></a>
@@ -26,65 +47,35 @@
     <a href="/resources"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Resources</span></a>
     <a href="/login"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">SignUp</span></a>
     <a href="/register"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Login</span></a>
-    <button id="darkbutton"  class="w3-large w3-button w3-margin w3-round-large w3-blue ">Dark Mode</button>
+    <button id="darkbutton"  style="height:43px" class="w3-large w3-button w3-margin w3-round-large w3-blue ">Dark Mode</button>
 </div>
 <div id="main">
-
-<div class="w3-container  w3-black">
-    <button id="openNav" class="w3-button w3-xxxlarge w3-black w3-round-large " onclick="w3_open()">&#8962;</button>
-    <img src="https://user-images.githubusercontent.com/76025363/110568108-84b01180-8120-11eb-95ad-265a8e3bc052.png" width="275" height="147">
-    <!-- <span class="w3-xxxlarge " style="font: Arial; color:#ffffff ; text-align:left;"><b>Taskbook</b><span> -->
-     <span class="w3-right" id="clockbox"  style="font:20pt Arial; color:#ffffff ; text-align:right;">
-
-<script type="text/javascript">
-var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
-function GetClock(){
-var d=new Date();
-var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
-var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
-if(nhour==0){ap=" AM";nhour=12;}
-else if(nhour<12){ap=" AM";}
-else if(nhour==12){ap=" PM";}
-else if(nhour>12){ap=" PM";nhour-=12;}
-if(nmin<=9) nmin="0"+nmin;
-if(nsec<=9) nsec="0"+nsec;
-var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
-document.getElementById("clockbox").innerHTML=clocktext;
-}
-GetClock();
-setInterval(GetClock,1000);
-</script>
-
-
-
-
-  </span>
-</div>
+  <div class="div-banner">
+    <button id="openNav" class="w3-button w3-margin w3-xxxlarge w3-round-large w3-hover-green" onclick="w3_open()">&#8962;</button>
+    <img src="https://github.com/moha-ali001/software-engineering-proj/blob/main/views/swift_logo_v1.png?raw=true" width="275" height="147">
+  </div>
 <script>
+
 function w3_open() {
   document.getElementById("main").style.marginLeft = "25%";
   document.getElementById("mySidebar").style.width = "25%";
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
 }
+
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
 }
 </script>
-
-
 </span>
 <script>
-
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
@@ -98,7 +89,6 @@ window.onclick = function(event) {
     }
   }
 }
-
 const body = document.querySelector('body');
 const button = document.querySelector('#darkbutton');
 function toggleDark() {
