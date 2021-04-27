@@ -22,3 +22,6 @@ if __name__ == "__main__":
         {"time":0.5, "food":"Grilled Chicken", "amount":"3 ounces", "calories":160, "list":"today", "completed":False},
         {"time":0.5, "food":"White Rice", "amount":"2 cups", "calories":320, "list":"today", "completed":False},
     ]) 
+    user_table = taskbook_db.get_table('users')
+    user_table.drop()
+    user_table = taskbook_db.create_table('users')
