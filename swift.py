@@ -5,7 +5,7 @@
 import os
 
 # web transaction objects
-from bottle import request, response
+from bottle import request, response, redirect
 
 # HTML request types
 from bottle import route, get, put, post, delete
@@ -55,10 +55,22 @@ def resources():
 @route('/stopwatch')
 def stopwatch():
     return template("stopwatch.tpl")
-    
+
 @route('/countdown')
-def countdown():
+def stopwatch():
     return template("countdown.tpl")
+
+@route('/register-account')
+def register_account():
+    uname = request.forms.get('uname')
+    pword = request.forms.get('pword')
+    email = request.forms.get('email')
+    user_table = taskbook_db.get_table('users')
+    users = [dict(x) for x in user_table.find()]
+    for u in users:
+        if u.uname == uname: 
+            return redirect('/register')
+    
 
 # ---------------------------
 # task REST api
@@ -269,5 +281,3 @@ if PYTHONANYWHERE:
 else:
    if __name__ == "__main__":
        run(host='localhost', port=8080, debug=True)
-
-
