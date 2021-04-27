@@ -28,9 +28,9 @@ else:
 # ---------------------------
 
 @route('/')
-@route('/schedule')
+@route('/tasks')
 def tasks():
-    return template("schedule.tpl")
+    return template("tasks.tpl")
 
 @route('/login')
 def login():
