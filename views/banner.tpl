@@ -39,7 +39,7 @@ button {
 </head>
 <body>
 <div  class="w3-sidebar w3-bar-block w3-card-4 w3-animate-top " style="display:none; background-color:#1b1b2a;" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
+  <button class="w3-bar-item w3-button w3-large w3-text-white"
   onclick="w3_close()">Close &times;</button>
     <a href="/overview"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Overview</span></a>
     <a href="/tasks"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Schedule</span></a>
@@ -51,7 +51,7 @@ button {
 </div>
 <div id="main">
   <div class="div-banner">
-    <button id="openNav" class="w3-button w3-margin w3-xxxlarge w3-round-large w3-hover-green" onclick="w3_open()">&#8962;</button>
+    <button id="openNav" class="w3-button w3-margin w3-xxlarge w3-round-large w3-hover-green" onclick="w3_open()">&#8962;</button>
     <img src="https://github.com/moha-ali001/software-engineering-proj/blob/main/views/swift_logo_v1.png?raw=true" width="275" height="147">
   </div>
 <script>
