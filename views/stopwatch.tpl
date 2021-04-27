@@ -1,3 +1,5 @@
+% include("header.tpl")
+% include("banner.tpl")
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +8,6 @@
     height: 300px;
     width: 100%;
 }
-
 #display{
     width: 100%;
     font-size: 72px;
@@ -22,70 +23,74 @@
 let sec = 0;
 let min = 0;
 let hour = 0;
+let msec = 0;
 
+let displayMsec;
 let displaySec = 0;
 let displayMin = 0;
 let displayHour = 0;
-
 let interval = null;
-
 let status = "stopped";
-
 function stopwatch(){
+    
+    msec++;
+if(msec >=100){
+    msec = 0;
     sec++;
-    if (sec / 60 === 1){
+    if (sec >= 60){
         sec = 0;
         min++;
-
-        if (min / 60 === 1){
+        if (min >=60){
             min = 0;
             hour++;
         }
-
     }
-
+}
+    if(msec < 10){
+        displayMsec = "0" + msec.toString();
+    }
+    else {
+        displayMsec = msec;
+    }
     if (sec < 10){
         displaySec = "0" + sec.toString();
     }
     else{
         displaySec = sec;
     }
-
     if (min < 10){
         displayMin = "0" + min.toString();
     }
     else{
         displayMin = min;
     }
-
     if (hour < 10){
         displayHour = "0" + hour.toString();
     }
     else{
         displayHour = hour;
     }
-    document.getElementById("display").innerHTML = displayHour + ":" + displayMin + ":" + displaySec;
+    document.getElementById("display").innerHTML = displayHour + ":" + displayMin + ":" + displaySec + "." + displayMsec;
 }
-
-function stop(){
-    if(status === "stopped"){
-        interval = window.setInterval(stopwatch, 1000);
-        document.getElementById("stop").innerHTML = "Stop";
+function pause(){
+    if(status === "paused"){
+        interval = window.setInterval(stopwatch, 10);
+        document.getElementById("pause").innerHTML = "Pause";
         status = "started";
     }
     else{
         window.clearInterval(interval);
-        document.getElementById("stop").innerHTML = "Start";
-        status = "stopped";
+        document.getElementById("pause").innerHTML = "Start";
+        status = "paused";
     }
 }
-
 function reset(){
     window.clearInterval(interval);
+    msec = 0;
     sec = 0;
     min = 0;
     hour = 0;
-    document.getElementById("display").innerHTML = "00:00:00";
+    document.getElementById("display").innerHTML = "00:00:00.00";
     document.getElementById("top").innerHTML = "Start";
 }
 </script>
@@ -93,11 +98,12 @@ function reset(){
 <body>
     <div class="container">
         <div id="display">
-            00:00:00
+            00:00:00.00
         </div>
         <div class="buttons">
-            <button id="stop" onclick="stop()">Start</button> <button id="reset" onclick="reset()">Reset</button>
+            <button id="pause" onclick="pause()">Start</button> <button id="reset" onclick="reset()">Reset</button>
         </div>
     </div>
 </body>
 </html>
+% include("footer.tpl")
