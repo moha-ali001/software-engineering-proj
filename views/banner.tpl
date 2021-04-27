@@ -21,10 +21,6 @@ body.dark {
   font-family: 'Roboto';
 }
 
-body.dark label {
-  color : #e6e6e6;
-}
-
 body.dark button {
   background-color: #14141F;
   color: white;
@@ -48,6 +44,8 @@ button {
     <a href="/overview"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Overview</span></a>
     <a href="/schedule"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Schedule</span></a>
     <a href="/meals"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Meals</span></a>
+   <a href="/stopwatch"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Stopwatch</span></a>
+    <a href="/countdown"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Countdown</span></a>
     <a href="/resources"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Resources</span></a>
     <a href="/login"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">SignUp</span></a>
     <a href="/register"><span class="w3-large w3-button w3-margin w3-round-large w3-blue">Login</span></a>
