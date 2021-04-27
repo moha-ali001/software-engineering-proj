@@ -21,6 +21,10 @@ body.dark {
   font-family: 'Roboto';
 }
 
+body.dark label {
+  color : #e6e6e6;
+}
+
 body.dark button {
   background-color: #14141F;
   color: white;
