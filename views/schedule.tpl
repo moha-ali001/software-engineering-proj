@@ -288,7 +288,6 @@ function get_current_tasks() {
       display_task(task);
     }
     // wire the response events 
-    $(".move_task").click(move_task);
     $(".description").click(complete_task_des)
     $(".sets").click(complete_task_set)
     $(".reps").click(complete_task_rep)
