@@ -499,7 +499,6 @@ function get_current_meals() {
       display_meal(meal);
     }
     // wire the response events 
-    $(".move_meal").click(move_meal);
     $(".food").click(complete_meal_food)
     $(".amount").click(complete_meal_amount)
     $(".calories").click(complete_meal_calories)
