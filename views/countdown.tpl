@@ -21,7 +21,7 @@
 	</div>
         <style>
 .container2{
-    height: 400px;
+    height: 300px;
     width: 100%;
 }
 #display2{
