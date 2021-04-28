@@ -96,7 +96,14 @@ function reset(){
 </script>
 </head>
 <body>
-    <div class="container">
+
+<div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom"></div>
+<div class="w3-row">
+  <div class="w3-panel w3-card-4 w3-round-xlarge" style="background-color:#1b1b2a; color:#b1b7ba; margin: auto; width:800px;">
+    <div class="w3-row w3-xxlarge w3-bottombar w3-border-theme-dark-blue w3-margin-bottom">
+      <h1><i>Stopwatch</i></h1>
+    </div>
+    <div class="container" style="height: 145px;">
         <div id="display">
             00:00:00.00
         </div>
@@ -104,6 +111,9 @@ function reset(){
             <button id="pause" onclick="pause()">Start</button> <button id="reset" onclick="reset()">Reset</button>
         </div>
     </div>
+    <div class="w3-row w3-bottombar w3-border-theme-dark-blue w3-margin-bottom w3-margin-top"></div>
+  </div>
+</div>
 </body>
 </html>
 % include("footer.tpl")
