@@ -56,6 +56,10 @@ def resources():
 def stopwatch():
     return template("stopwatch.tpl")
 
+@route('/countdown')
+def stopwatch():
+    return template("countdown.tpl")
+
 @route('/register-account')
 def register_account():
     uname = request.forms.get('uname')
@@ -277,5 +281,3 @@ if PYTHONANYWHERE:
 else:
    if __name__ == "__main__":
        run(host='localhost', port=8080, debug=True)
-
-
