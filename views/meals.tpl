@@ -135,6 +135,11 @@ button:hover {
     <div class="w3-row w3-bottombar w3-border-theme-dark-blue w3-margin-bottom w3-margin-top"></div>
   </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 <input id="current_food_input" hidden value=""/> 
 <script>
 const calculator = {
@@ -494,7 +499,6 @@ function get_current_meals() {
       display_meal(meal);
     }
     // wire the response events 
-    $(".move_meal").click(move_meal);
     $(".food").click(complete_meal_food)
     $(".amount").click(complete_meal_amount)
     $(".calories").click(complete_meal_calories)
